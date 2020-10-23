@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+/*
+YOU SHOULDNT NEED TO MODIFY ANYTHING IN THIS FILE
+*/
+
+
+// Class here is a way to make a Student object. Not a react component!
 class Student {
+    //constuctor functions are run when we make a new student. Here it saves the github parameter as the objects github_name property
     constructor(github = '') {
         this.github_name = github;
     }
 };
 
 class StudentForm extends Component {
+    //new Student calls the constructor in the Student Class.
     state = new Student();
 
     // Called when the input field changes
@@ -37,8 +45,9 @@ class StudentForm extends Component {
     }
 }
 
+// PropTypes is an optional library that helps developers.
 // This will tell the parent component what functions it must implement to 
-// use this component.
+// use this component. And it throws an error that is easy to find for a developer if they forget it.
 StudentForm.propTypes = {
     addStudent: PropTypes.func.isRequired,
 };
