@@ -56,7 +56,7 @@ class App extends Component {
         </Nav>
         <br/>
         <StudentForm addStudent={this.addStudent}/>
-        <StudentList studentList={this.state.studentList} />
+        <StudentList studentList={this.state.studentList} /> 
       </div>
     );
   }

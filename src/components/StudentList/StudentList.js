@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button,  Table} from 'react-bootstrap';
+import Details from '../Details/Details'
 
 class StudentList extends Component { 
   state = {
@@ -20,8 +21,14 @@ class StudentList extends Component {
         })
       })
   }
-
   render() {
+    console.log(this.state) 
+    let DetailsPlaceHolder; 
+    if(this.state.followers !== '') { 
+      DetailsPlaceHolder = <Details bio={this.state.bio} followers={this.state.followers} avatar_url={this.state.avatar_url} /> 
+    } else { 
+      DetailsPlaceHolder = <div></div>
+    }
     return (
       <div>
         <Table striped bordered hover>
@@ -39,7 +46,8 @@ class StudentList extends Component {
               }
           </tbody>
           </Table> 
-          <h2>Details</h2>
+          <h2>Details</h2> 
+          {DetailsPlaceHolder}
       </div>
     );
   }
