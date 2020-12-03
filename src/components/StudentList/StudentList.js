@@ -1,25 +1,26 @@
 import React, { Component } from 'react';
+import { Button } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 
 class StudentList extends Component {
   render() {
     return (
       <div>
-        {JSON.stringify(this.props.studentList)}  
-        <table>
+        <Table striped bordered hove>
         <thead> 
           </thead> 
           <tbody>
               { this.props.studentList.map(student => 
-               <tr>
-                  <td key={student.id}>
+               <tr key={this.props.studentList.indexOf(student)}>
+                  <td>
                     {student.github_name} 
-                    <button>Delete</button>
                   </td>
+                  <td><Button variant="primary">Delete</Button></td>
                   </tr>
                   )
               }
           </tbody>
-        </table>
+          </Table>
       </div>
     );
   }

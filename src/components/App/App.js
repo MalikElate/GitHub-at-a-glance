@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import StudentForm from '../StudentForm/StudentForm';
-import StudentList from '../StudentList/StudentList';
+import StudentList from '../StudentList/StudentList'; 
+import Nav from 'react-bootstrap/Nav'
 
 class App extends Component {
   
@@ -50,9 +51,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">GitHub Student List</h1>
-        </header>
+        <Nav className="justify-content-center">
+          <h1>GitHub Student List</h1>
+        </Nav>
         <br/>
         <StudentForm addStudent={this.addStudent}/>
         <StudentList studentList={this.state.studentList} />
