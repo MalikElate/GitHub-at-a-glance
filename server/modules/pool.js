@@ -11,7 +11,7 @@ const config = {
 // one instance to rul them all!
 const pool = new Pool(config);
 
-pool.on('connect', (client) => {
+pool.on('connect', (client) => {``
     console.log('pg connected');
 })
 
