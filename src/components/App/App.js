@@ -3,7 +3,7 @@ import axios from 'axios';
 import './App.css';
 import StudentForm from '../StudentForm/StudentForm';
 import StudentList from '../StudentList/StudentList'; 
-import Nav from 'react-bootstrap/Nav'
+import { Nav} from 'react-bootstrap';
 
 class App extends Component {
   
