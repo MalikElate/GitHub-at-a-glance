@@ -7,7 +7,7 @@ class StudentList extends Component {
     bio: '', 
     followers: '', 
     avatar_url: '', 
-    github_name: '', 
+    github_name: ''
   }
 
   getDetails = (name) => { 
@@ -28,7 +28,7 @@ class StudentList extends Component {
   render() {
     let DetailsPlaceHolder; 
     if(this.state.followers !== '') { 
-      DetailsPlaceHolder = <Details bio={this.state.bio} followers={this.state.followers} avatar_url={this.state.avatar_url} /> 
+      DetailsPlaceHolder = <Details bio={this.state.bio} followers={this.state.followers} avatar_url={this.state.avatar_url} name={this.state.github_name} /> 
     } else { 
       DetailsPlaceHolder = <div></div>
     }
@@ -36,6 +36,8 @@ class StudentList extends Component {
       <div>
         <Table striped bordered hover>
         <thead> 
+          <th>Name</th>
+          <th>&nbsp;</th>
           </thead> 
           <tbody>
               { this.props.studentList.map(student => 
