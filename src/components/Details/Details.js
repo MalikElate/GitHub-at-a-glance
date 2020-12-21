@@ -4,7 +4,6 @@ import { Card } from 'react-bootstrap';
 class Details extends Component { 
   render() {
     return (
-      <div> 
         <Card style={{ width: '18rem' }}>
           <Card.Img src={this.props.avatar_url} alt="GitHub profile pic" /> 
           <Card.Body>
@@ -13,7 +12,6 @@ class Details extends Component {
             <Card.Text> Bio: {this.props.bio} </Card.Text> 
           </Card.Body>
         </Card>
-      </div>
     );
   }
 }

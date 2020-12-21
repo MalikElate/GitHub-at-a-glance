@@ -7,37 +7,43 @@ class StudentList extends Component {
     bio: '', 
     followers: '', 
     avatar_url: '', 
-    github_name: ''
+    github_name: '', 
+    currentlyDisplayedUsers: [],
+  }
+
+  componentDidMount() { 
+    
   }
 
   getDetails = (name) => { 
     this.setState({ 
-      github_name: name
+      currentlyDisplayedUsers: [...this.state.currentlyDisplayedUsers, name]  
     })
     fetch(`https://api.github.com/users/${name}?access_token=913f20e25e454b699cbf7b4d5f3ae7fd516cafc4`)
       .then((response) => response.json())
       .then(
         (data) => {console.log('This is the data', data) 
         this.setState({ 
-          bio: data.bio, 
-          followers: data.followers, 
-          avatar_url: data.avatar_url
+          currentlyDisplayedUsers: [
+            ...this.state.currentlyDisplayedUsers,
+            {
+              bio: data.bio, 
+              followers: data.followers, 
+              avatar_url: data.avatar_url
+            }]
         })
       })
   }
   render() {
-    let DetailsPlaceHolder; 
-    if(this.state.followers !== '') { 
-      DetailsPlaceHolder = <Details bio={this.state.bio} followers={this.state.followers} avatar_url={this.state.avatar_url} name={this.state.github_name} /> 
-    } else { 
-      DetailsPlaceHolder = <div></div>
-    }
+    console.log(this.state.currentlyDisplayedUsers)
     return (
       <div>
         <Table striped bordered hover>
         <thead> 
-          <th>Name</th>
-          <th>&nbsp;</th>
+          <tr>
+            <th>Name</th>
+            <th>&nbsp;</th>
+          </tr>
           </thead> 
           <tbody>
               { this.props.studentList.map(student => 
@@ -52,7 +58,9 @@ class StudentList extends Component {
           </tbody>
           </Table> 
           <h2>Details</h2> 
-          {DetailsPlaceHolder}
+          {this.state.currentlyDisplayedUsers.map(user => 
+              <Details bio={user.bio} followers={user.followers} avatar_url={user.avatar_url} name={user.github_name} /> 
+            )}
       </div>
     );
   }
