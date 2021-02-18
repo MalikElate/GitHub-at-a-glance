@@ -14,9 +14,13 @@ class StudentList extends Component {
   getDetails = (name) => { 
     this.setState({ 
       currentlyDisplayedUsers: [...this.state.currentlyDisplayedUsers, name]  
-    })
-    
+    }); 
   }
+
+  removeCandidate = (name) => {
+    // this.props.dispatch({type: 'REMOVE_CANDIDATE', payload: name});
+  }
+
   render() {
     console.log(this.state.currentlyDisplayedUsers)
     return (
@@ -25,6 +29,7 @@ class StudentList extends Component {
         <thead> 
           <tr>
             <th>Name</th>
+            <th>&nbsp;</th>
             <th>&nbsp;</th>
           </tr>
           </thead> 
@@ -35,6 +40,7 @@ class StudentList extends Component {
                     {student.github_name} 
                   </td>
                   <td><Button variant="success" onClick={()=>this.getDetails(student.github_name)}>Get Details</Button></td>
+                  <td><Button variant="danger" onClick={()=>this.removeCandidate(student.github_name)}>Remove Candidate</Button></td>
                   </tr>
                   )
               }
