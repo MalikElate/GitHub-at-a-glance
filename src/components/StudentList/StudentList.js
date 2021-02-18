@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
-import { Button,  Table} from 'react-bootstrap';
+import { Table, Button } from 'react-bootstrap';
 import Details from '../Details/Details'
 
 class StudentList extends Component { 
@@ -9,13 +9,19 @@ class StudentList extends Component {
     followers: '', 
     avatar_url: '', 
     github_name: '', 
-    currentlyDisplayedUsers: [],
+    currentlyDisplayedUsers: []
+  }
+
+  componentDidMount() { 
+    this.props.dispatch({type: 'GET_ALL_CANDIDATES'}); 
+    this.props.dispatch({type: 'GET_ALL_CANDIDATES_DETAILS', payload: this.state.currentlyDisplayedUsers}); 
   }
 
   getDetails = (name) => { 
     this.setState({ 
       currentlyDisplayedUsers: [...this.state.currentlyDisplayedUsers, name]  
     }); 
+    this.props.dispatch({type: 'GET_ALL_CANDIDATES_DETAILS', payload: this.state.currentlyDisplayedUsers}); 
   }
 
   removeCandidate = (name) => {
@@ -23,20 +29,20 @@ class StudentList extends Component {
   }
 
   render() {
-    console.log(this.state.currentlyDisplayedUsers)
     return (
       <div>
+        {JSON.stringify(this.props.reduxState.candidatesDetails)}
         <Table striped bordered hover>
-        <thead> 
-          <tr>
-            <th>Name</th>
-            <th>&nbsp;</th>
-            <th>&nbsp;</th>
-          </tr>
-          </thead> 
-          <tbody>
-              { this.props.studentList.map(student => 
-               <tr key={this.props.studentList.indexOf(student)}>
+          <thead> 
+            <tr>
+              <th>Name</th>
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
+            </tr>
+            </thead> 
+            <tbody>
+              { this.props.reduxState.candidates.map((student, i) => 
+                <tr key={i}>
                   <td>
                     {student.github_name} 
                   </td>
@@ -45,12 +51,21 @@ class StudentList extends Component {
                   </tr>
                   )
               }
-          </tbody>
+            </tbody>
           </Table> 
           <h2>Details</h2> 
-          {this.state.currentlyDisplayedUsers.map(user => 
-              <Details bio={user.bio} followers={user.followers} avatar_url={user.avatar_url} name={user.github_name} /> 
-            )}
+          {
+            this.state.currentlyDisplayedUsers.map((user, i) => 
+              <Details 
+                key={i}
+                bio={user.bio}
+                followers={user.followers} 
+                avatar_url={user.avatar_url} 
+                name={user.github_name} 
+                currentlyDisplayedUsers={this.state.currentlyDisplayedUsers}
+                /> 
+            )
+          }
       </div>
     );
   }

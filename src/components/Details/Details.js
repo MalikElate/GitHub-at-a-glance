@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'; 
 import { Card } from 'react-bootstrap';
 
 class Details extends Component { 
+  componentDidMount() { 
+    this.props.dispatch({type: 'GET_ALL_CANDIDATES_DETAILS', payload: this.props.currentlyDisplayedUsers}); 
+  }
   render() {
     return (
         <Card style={{ width: '18rem' }}>
@@ -16,4 +20,8 @@ class Details extends Component {
   }
 }
 
-export default Details;
+const mapStateToProps = reduxState => ({
+  reduxState,
+});
+
+export default connect(mapStateToProps)(Details); 
