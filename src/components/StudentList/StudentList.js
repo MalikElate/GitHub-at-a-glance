@@ -11,28 +11,11 @@ class StudentList extends Component {
     currentlyDisplayedUsers: [],
   }
 
-  componentDidMount() { 
-    
-  }
-
   getDetails = (name) => { 
     this.setState({ 
       currentlyDisplayedUsers: [...this.state.currentlyDisplayedUsers, name]  
     })
-    fetch(`https://api.github.com/users/${name}?access_token=913f20e25e454b699cbf7b4d5f3ae7fd516cafc4`)
-      .then((response) => response.json())
-      .then(
-        (data) => {console.log('This is the data', data) 
-        this.setState({ 
-          currentlyDisplayedUsers: [
-            ...this.state.currentlyDisplayedUsers,
-            {
-              bio: data.bio, 
-              followers: data.followers, 
-              avatar_url: data.avatar_url
-            }]
-        })
-      })
+    
   }
   render() {
     console.log(this.state.currentlyDisplayedUsers)
