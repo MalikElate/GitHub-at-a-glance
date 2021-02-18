@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'; 
 import { Button,  Table} from 'react-bootstrap';
 import Details from '../Details/Details'
 
@@ -55,4 +56,9 @@ class StudentList extends Component {
   }
 }
 
-export default StudentList;
+
+const mapStateToProps = reduxState => ({
+  reduxState,
+});
+
+export default connect(mapStateToProps)(StudentList); 

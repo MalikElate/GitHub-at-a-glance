@@ -1,17 +1,28 @@
 const pg = require('pg');
 const Pool = pg.Pool;
-const config = {
+
+let config = {}
+if ( process.env.DATABASE_URL ){
+  // Running remote (heroku)
+  config = {
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false }
+  }
+} else {
+  // Running locally
+  config = {
     database: 'react_student_list', // the name of the database
     host: 'localhost', // where is your database
     port: 5432, // the port number for your database, 5432 is the default
     max: 10, // how many connections at one time
     idleTimeoutMillis: 30000 // 30 seconds to try to connect
-};
+  };
+}
 
 // one instance to rul them all!
 const pool = new Pool(config);
 
-pool.on('connect', (client) => {``
+pool.on('connect', (client) => {
     console.log('pg connected');
 })
 
@@ -21,3 +32,5 @@ pool.on('error', (err, client) => {
 });
 
 module.exports = pool;
+
+
