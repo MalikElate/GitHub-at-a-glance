@@ -14,7 +14,6 @@ class StudentList extends Component {
 
   componentDidMount() { 
     this.props.dispatch({type: 'GET_ALL_CANDIDATES'}); 
-    this.props.dispatch({type: 'GET_ALL_CANDIDATES_DETAILS', payload: this.state.currentlyDisplayedUsers}); 
   }
 
   getDetails = (name) => { 
@@ -35,7 +34,7 @@ class StudentList extends Component {
         <Table striped bordered hover>
           <thead> 
             <tr>
-              <th>Name</th>
+              <th>Username</th>
               <th>&nbsp;</th>
               <th>&nbsp;</th>
             </tr>
@@ -55,7 +54,7 @@ class StudentList extends Component {
           </Table> 
           <h2>Details</h2> 
           {
-            this.state.currentlyDisplayedUsers.map((user, i) => 
+            this.props.reduxState.candidatesDetails.map((user, i) => 
               <Details 
                 key={i}
                 bio={user.bio}
