@@ -18,9 +18,9 @@ router.get('/', (req, res) => {
 
 // POST candidates
 router.post('/', (req, res) => {
+    console.log(req.body)
     const newCandidate = req.body.github_name;
     const sqlText = `INSERT INTO candidates (github_name) VALUES ($1)`;
-
     pool.query(sqlText, [newCandidate])
         .then((result) => {
             res.sendStatus(201);

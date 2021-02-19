@@ -12,7 +12,6 @@ function* getAllCandidatesDetails(action){
 
 function* removeCandidatesDetails(action){ 
   try { 
-    console.log(action.payload,'action.payload');
     yield axios.delete(`/candidate/${action.payload}`);
     yield put({type: 'GET_ALL_CANDIDATES'}); 
   } catch (error) { 
@@ -22,7 +21,8 @@ function* removeCandidatesDetails(action){
 
 function* addCandidate(action){
   try { 
-    const response = yield axios.get('/candidate'); 
+    console.log(action.payload.github_name)
+    yield axios.post('/candidate', {github_name: action.payload.github_name}); 
     yield put({type: 'GET_ALL_CANDIDATES'}); 
   } catch (error) { 
     console.log('error in getAllUsers saga', error); 

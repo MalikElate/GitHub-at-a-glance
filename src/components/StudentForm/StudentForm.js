@@ -1,21 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-
-/*
-YOU SHOULDNT NEED TO MODIFY ANYTHING IN THIS FILE
-*/
-
-
-// Class here is a way to make a Student object. Not a react component!
 class Student {
-    //constuctor functions are run when we make a new student. Here it saves the github parameter as the objects github_name property
     constructor(github = '') {
         this.github_name = github;
     }
 };
 
-class StudentForm extends Component {
+class CandidateForm extends Component {
     //new Student calls the constructor in the Student Class.
     state = new Student();
 
@@ -26,9 +19,13 @@ class StudentForm extends Component {
 
     // Called when the submit button is pressed
     handleSubmit = (event) => {
-        event.preventDefault();
-        this.props.addStudent(this.state);
-        this.clearStudentFields();
+        if (this.state.github_name) { 
+            event.preventDefault();
+            this.props.dispatch({type: 'ADD_CANDIDATE', payload: this.state})
+            this.clearStudentFields();
+        } else { 
+            alert('Please add a github username')
+        }
     }
 
     // Clear fields of the form by reseting the user
@@ -49,8 +46,12 @@ class StudentForm extends Component {
 // PropTypes is an optional library that helps developers.
 // This will tell the parent component what functions it must implement to 
 // use this component. And it throws an error that is easy to find for a developer if they forget it.
-StudentForm.propTypes = {
+CandidateForm.propTypes = {
     addStudent: PropTypes.func.isRequired,
 };
 
-export default StudentForm;
+const mapStateToProps = reduxState => ({
+    reduxState,
+  });
+  
+  export default connect(mapStateToProps)(CandidateForm); 
