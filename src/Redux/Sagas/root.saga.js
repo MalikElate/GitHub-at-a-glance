@@ -20,6 +20,15 @@ function* removeCandidatesDetails(action){
   }
 }
 
+function* addCandidate(action){
+  try { 
+    const response = yield axios.get('/candidate'); 
+    yield put({type: 'GET_ALL_CANDIDATES'}); 
+  } catch (error) { 
+    console.log('error in getAllUsers saga', error); 
+  }
+}
+
 function* getAllCandidates(){
   try { 
     const response = yield axios.get('/candidate'); 
@@ -33,6 +42,7 @@ function* rootSaga() {
   yield takeEvery('GET_ALL_CANDIDATES', getAllCandidates);
   yield takeEvery('GET_ALL_CANDIDATES_DETAILS', getAllCandidatesDetails);            
   yield takeEvery('REMOVE_CANDIDATE', removeCandidatesDetails);            
+  yield takeEvery('ADD_CANDIDATE', addCandidate);            
 }
 
 export default rootSaga
