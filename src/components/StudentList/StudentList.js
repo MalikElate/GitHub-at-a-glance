@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './studentlist.css'; 
 import { connect } from 'react-redux'; 
 import { Table, Button } from 'react-bootstrap';
 import Details from '../Details/Details'
@@ -54,9 +55,9 @@ class StudentList extends Component {
           <div className='detail-card-container'>
           {
             this.props.reduxState.candidatesDetails.map((user, i) => 
-            <div>
+            <div className='detail-card-item'>
               <Details 
-              key={i}
+                key={i}
                   bio={user.bio}
                   followers={user.followers} 
                   avatar_url={user.avatar_url} 

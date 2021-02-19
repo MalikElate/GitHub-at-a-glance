@@ -1,0 +1,13 @@
+.detail-card-container { 
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap; 
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 100vw;
+}
+
+.detail-card-item { 
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
