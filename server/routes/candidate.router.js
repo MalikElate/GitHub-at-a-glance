@@ -18,10 +18,10 @@ router.get('/', (req, res) => {
 
 // POST candidates
 router.post('/', (req, res) => {
-    const newStudent = req.body.github_name;
+    const newCandidate = req.body.github_name;
     const sqlText = `INSERT INTO candidates (github_name) VALUES ($1)`;
 
-    pool.query(sqlText, [newStudent])
+    pool.query(sqlText, [newCandidate])
         .then((result) => {
             res.sendStatus(201);
         })
@@ -31,14 +31,15 @@ router.post('/', (req, res) => {
         });
 });
 
-router.delete('/', (req, res) => {
-    const newStudent = req.body.github_name;
-    const sqlText = `INSERT INTO candidates (github_name) VALUES ($1)`;
-    pool.query(sqlText, [newStudent])
+router.delete('/:github_name', (req, res) => {
+    const newCandidate = req.params.github_name;
+    console.log(newCandidate)
+    const sqlText = `DELETE FROM candidates WHERE "github_name" = $1;`;
+    pool.query(sqlText, [newCandidate])
         .then((result) => {
             res.sendStatus(201);
         })
-        .catch((error) => {
+        .catch((error) => {``
             console.log(`Error making database query ${sqlText}`, error);
             res.sendStatus(500);
         });
