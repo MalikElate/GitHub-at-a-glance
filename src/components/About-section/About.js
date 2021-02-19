@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 class AboutSection extends Component { 
   render() {
     return (
-      <div className="z-depth-5"> 
-        <p>Easily compare your job candidates' GitHub</p>
+      <div style={{paddingTop: '20px'}}> 
+        <p>Easily compare your job candidates' GitHubs</p>
       </div>
     );
   }

@@ -35,7 +35,7 @@ class CandidateForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} style={{paddingBottom: '20px'}}>
                 <input onChange={this.handleChange} placeholder="GitHub username" value={this.state.github_name} name="github_name" />
                 <input type="submit" value="Submit" />
             </form>
