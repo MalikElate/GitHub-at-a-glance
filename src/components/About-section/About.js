@@ -4,7 +4,7 @@ class AboutSection extends Component {
   render() {
     return (
       <div className="z-depth-5"> 
-        <p>Get quick info on a github user</p>
+        <p>Easily compare your job candidates' GitHub</p>
       </div>
     );
   }
