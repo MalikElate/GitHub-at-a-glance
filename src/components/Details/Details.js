@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import { Card } from 'react-bootstrap';
 
 class Details extends Component { 
-  componentDidMount() { 
-    this.props.dispatch({type: 'GET_ALL_CANDIDATES_DETAILS', payload: this.props.currentlyDisplayedUsers}); 
-  }
   render() {
     return (
         <Card style={{ width: '18rem' }}>

@@ -9,33 +9,29 @@ class StudentList extends Component {
     followers: '', 
     avatar_url: '', 
     github_name: '', 
-    currentlyDisplayedUsers: []
   }
 
   componentDidMount() { 
     this.props.dispatch({type: 'GET_ALL_CANDIDATES'}); 
-    this.props.dispatch({type: 'GET_ALL_CANDIDATES_DETAILS', payload: this.state.currentlyDisplayedUsers}); 
   }
 
   getDetails = (name) => { 
-    this.setState({ 
-      currentlyDisplayedUsers: [...this.state.currentlyDisplayedUsers, name]  
-    }); 
-    this.props.dispatch({type: 'GET_ALL_CANDIDATES_DETAILS', payload: this.state.currentlyDisplayedUsers}); 
+    this.props.dispatch({type: 'GET_ALL_CANDIDATES_DETAILS', payload: name}); 
   }
 
   removeCandidate = (name) => {
-    // this.props.dispatch({type: 'REMOVE_CANDIDATE', payload: name});
+    this.props.dispatch({type: 'REMOVE_CANDIDATE', payload: name});
   }
 
   render() {
+    console.log('rendering')
+    // this.props.dispatch({type: 'GET_ALL_CANDIDATES_DETAILS', payload: this.state.currentlyDisplayedUsers}); 
     return (
       <div>
-        {JSON.stringify(this.props.reduxState.candidatesDetails)}
         <Table striped bordered hover>
           <thead> 
             <tr>
-              <th>Name</th>
+              <th>Username</th>
               <th>&nbsp;</th>
               <th>&nbsp;</th>
             </tr>
@@ -53,9 +49,10 @@ class StudentList extends Component {
               }
             </tbody>
           </Table> 
-          <h2>Details</h2> 
+          <h2>Details
+        </h2> 
           {
-            this.state.currentlyDisplayedUsers.map((user, i) => 
+            this.props.reduxState.candidatesDetails.map((user, i) => 
               <Details 
                 key={i}
                 bio={user.bio}

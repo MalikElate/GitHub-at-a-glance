@@ -12,7 +12,8 @@ const candidates = (state = [], action) => {
 const candidatesDetails = (state = [], action) => {
   switch (action.type) {
     case 'SET_CANDIDATES_DETAILS':
-      return action.payload;
+      console.log('candidatesDetails', action.payload)
+      return [...state, action.payload];
     default:
       return state;
   }
@@ -23,4 +24,4 @@ const rootReducer = combineReducers({
   candidatesDetails
 })
 
-export default rootReducer;
+export default rootReducer; 
