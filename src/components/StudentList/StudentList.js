@@ -14,23 +14,28 @@ class StudentList extends Component {
 
   componentDidMount() { 
     this.props.dispatch({type: 'GET_ALL_CANDIDATES'}); 
+    this.props.dispatch({type: 'GET_ALL_CANDIDATES_DETAILS', payload: this.state.currentlyDisplayedUsers}); 
   }
 
   getDetails = (name) => { 
     this.setState({ 
       currentlyDisplayedUsers: [...this.state.currentlyDisplayedUsers, name]  
-    }); 
+    })
     this.props.dispatch({type: 'GET_ALL_CANDIDATES_DETAILS', payload: this.state.currentlyDisplayedUsers}); 
+  
+
   }
 
   removeCandidate = (name) => {
-    // this.props.dispatch({type: 'REMOVE_CANDIDATE', payload: name});
+    this.props.dispatch({type: 'REMOVE_CANDIDATE', payload: name});
   }
 
   render() {
+    console.log('rendering')
+    // this.props.dispatch({type: 'GET_ALL_CANDIDATES_DETAILS', payload: this.state.currentlyDisplayedUsers}); 
     return (
       <div>
-        {JSON.stringify(this.props.reduxState.candidatesDetails)}
+        {JSON.stringify(this.state.currentlyDisplayedUsers)}
         <Table striped bordered hover>
           <thead> 
             <tr>
@@ -52,7 +57,9 @@ class StudentList extends Component {
               }
             </tbody>
           </Table> 
-          <h2>Details</h2> 
+          <h2>Details
+        {this.state.currentlyDisplayedUsers[this.state.currentlyDisplayedUsers.length - 1]}
+        </h2> 
           {
             this.props.reduxState.candidatesDetails.map((user, i) => 
               <Details 

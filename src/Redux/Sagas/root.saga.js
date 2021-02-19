@@ -5,18 +5,18 @@ function* getAllCandidatesDetails(action){
   const allCandidateDetails = []; 
   try { 
     for (let user of action.payload) { 
-    try {
+      try {
         console.log(user)
         const response = yield axios.get(`https://api.github.com/users/${user}?access_token=${process.env.REACT_APP_GitHubAPIKey}`);
         allCandidateDetails = [...allCandidateDetails, response.data]
-        console.log(response.data);
-      }catch (error) {
-            console.log('error in getAllCandidatesDetails', error);
+        console.log('getAllCandidatesDetails response.data', response.data);
+      } catch (error) {
+          console.log('error in getAllCandidatesDetails', error);
       }
-    } 
+      } 
     yield put({type: 'SET_CANDIDATES_DETAILS', payload: allCandidateDetails })
   } catch (error) { 
-    console.log(error)
+    console.log('error in getAllCandidatesDetails', error);
   }
 }
 function* getAllCandidates(){
