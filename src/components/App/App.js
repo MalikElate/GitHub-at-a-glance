@@ -12,13 +12,12 @@ class App extends Component {
   addStudent = (newStudent) => {
     console.log(newStudent);
     // POST your data here 
-    axios.post('/students', {
+    axios.post('/candidate', {
         github_name: newStudent.github_name
     })
     .then( (response) => {
       // The info we want is in the response data property
       console.log('Response:', response.data);
-      this.getAllStudents(); 
     })
     .catch( (error)=> {
       alert('Something bad happened');

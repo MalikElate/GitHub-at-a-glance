@@ -51,18 +51,22 @@ class StudentList extends Component {
           </Table> 
           <h2>Details
         </h2> 
+          <div className='detail-card-container'>
           {
             this.props.reduxState.candidatesDetails.map((user, i) => 
+            <div>
               <Details 
-                key={i}
-                bio={user.bio}
-                followers={user.followers} 
-                avatar_url={user.avatar_url} 
-                name={user.github_name} 
-                currentlyDisplayedUsers={this.state.currentlyDisplayedUsers}
-                /> 
+              key={i}
+                  bio={user.bio}
+                  followers={user.followers} 
+                  avatar_url={user.avatar_url} 
+                  name={user.github_name} 
+                  currentlyDisplayedUsers={this.state.currentlyDisplayedUsers}
+                  /> 
+              </div>
             )
           }
+          </div>
       </div>
     );
   }

@@ -10,20 +10,29 @@ function* getAllCandidatesDetails(action){
     console.log('error in getAllCandidatesDetails', error);
   }
 }
+
+function* removeCandidatesDetails(action){ 
+  try { 
+    console.log(action.payload,'action.payload');
+    yield axios.delete('/candidate', action.payload);
+  } catch (error) { 
+    console.log('error in getAllCandidatesDetails', error);
+  }
+}
+
 function* getAllCandidates(){
   try { 
-    const response = yield axios.get('/students'); 
-    yield put({type: 'SET_CANDIDATES', payload: response.data})
+    const response = yield axios.get('/candidate'); 
+    yield put({type: 'SET_CANDIDATES', payload: response.data}); 
   } catch (error) { 
     console.log('error in getAllUsers saga', error); 
   }
 }
-//  d024065e53070f02d6a46361208341d6c8f40e1b 
-
 
 function* rootSaga() {
   yield takeEvery('GET_ALL_CANDIDATES', getAllCandidates);
-  yield takeEvery('GET_ALL_CANDIDATES_DETAILS', getAllCandidatesDetails);
+  yield takeEvery('GET_ALL_CANDIDATES_DETAILS', getAllCandidatesDetails);            
+  yield takeEvery('REMOVE_CANDIDATES_DETAILS', removeCandidatesDetails);            
 }
 
-export default rootSaga;
+export default rootSaga
