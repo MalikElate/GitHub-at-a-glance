@@ -13,7 +13,7 @@ const candidatesDetails = (state = [], action) => {
   switch (action.type) {
     case 'SET_CANDIDATES_DETAILS':
       console.log('candidatesDetails', action.payload)
-      return action.payload;
+      return [...state, action.payload];
     default:
       return state;
   }
