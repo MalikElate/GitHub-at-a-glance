@@ -1,8 +1,45 @@
-# React GitHub Student List
+![MIT LICENSE](https://img.shields.io/github/license/scottbromander/the_marketplace.svg?style=flat-square)
+![REPO SIZE](https://img.shields.io/github/repo-size/scottbromander/the_marketplace.svg?style=flat-square)
+![TOP_LANGUAGE](https://img.shields.io/github/languages/top/scottbromander/the_marketplace.svg?style=flat-square)
+![FORKS](https://img.shields.io/github/forks/scottbromander/the_marketplace.svg?style=social)
 
-Before you get started make sure to look through the code that has been provided. Server side code to `GET` and `POST` a GitHub user has been provided for you. There is also a form in a **component** (`components/StudentForm/StudentForm.js`) that passes data entered by the user back to `App.js`. You should not need to modify the StudentForm **component**.
+# GitHub at a Glance 
 
-### Setup
+## Description
+
+_Duration: 2 Week Sprint_
+
+Directly above this is how long it took you to develop the project. Your project description goes here. What problem did you solve? How did you solve it? 
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam at massa in faucibus. Etiam volutpat, risus non mollis convallis, velit nisi pulvinar mi, eu faucibus orci nisi eget nibh. Integer a velit pretium, volutpat arcu eleifend, fringilla elit. Cras erat sapien, convallis venenatis tellus vitae, feugiat dictum felis.
+
+Suspendisse euismod volutpat aliquet. Maecenas vulputate mauris in pellentesque facilisis. Phasellus varius malesuada semper. Cras sollicitudin diam mollis maximus aliquam.
+
+To see the fully functional site, please visit: [DEPLOYED VERSION OF APP](www.heroku.com)
+
+## Screen Shot
+
+![Stretch Goals Wireframe](wireframes/githubataglance.png)
+
+### Prerequisites
+
+Link to software that is required to install the app (e.g. node).
+
+- [Node.js](https://nodejs.org/en/)
+- List other prerequisites here
+
+## Installation
+
+How do you get your application up and running? This is a step by step list for how another developer could get this project up and running. The good target audience in terms of knowledge, would be a fellow Primer from another cohort being able to spin up this project. Note that you do not need a paragraph here to intro Installation. It should be step-by-step.
+
+If your application has secret keys (for example --  Twilio), make sure you tell them how to set that up, both in getting the key and then what to call it in the `.env` file.
+
+1. Create a database named `your database name`,
+2. The queries in the `tables.sql` file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. The project is built on [Postgres](https://www.postgresql.org/download/), so you will need to make sure to have that installed. We recommend using Postico to run those queries as that was used to create the queries, 
+3. Open up your editor of choice and run an `npm install`
+4. Run `npm run server` in your terminal
+5. Run `npm run client` in your terminal
+6. The `npm run client` command will open up a new browser tab for you!
 
 Start postgres if you haven't already with `brew services start`.
 
@@ -21,45 +58,28 @@ Between the server and client, you'll need two terminal tabs! Because we're usin
 
 > Note: You may also need to start PostgreSql, in which case you may need three terminal tabs.
 
-## Base Mode
+## Usage
+How does someone use this application? Tell a user story here.
 
-- Use `axios` to submit and save form data to the database by posting data to `/students`.
-- Retrieve the user list and store it in the `App.js`. Create a new **component** called `StudentList.js` and pass it the data. 
-- Display the students in a table on the DOM.
-- Update the user list each time a new user is added to the database.
+1. xxx
+2. xxx
+3. xxx
+4. xxx
+5. xxx
+6. xxx
 
-### Base Mode Wireframe
 
-![Base Mode Wireframe](wireframes/base_mode.png)
+## Built With
 
-## Stretch Goals
+List technologies and frameworks here
 
-### Link to profiles
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
 
-- Add a **More Details** button for each user. When the button is clicked on, pass the selected user back to `App.js`.
-- Make a request to the GitHub API to retrieve more details about the user. Create a new **component** on the page that displays those details.
-   - `https://api.github.com/users/GITHUB_USERNAME?access_token=913f20e25e454b699cbf7b4d5f3ae7fd516cafc4`
-- Create a new **component** that renders each individual list item in the user list.
+_Note, include this only if you have a license file. GitHub will generate one for you if you want!_
 
-#### GitHub Rate Limit
+## Acknowledgement
+Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality. (Thank your people)
 
-GitHub doesn't like it when malicious users pummel their API with an absurd amount of requests. Unfortunately, there's not a great way to tell who is malicious and who is not, so there is a rate limit to the number of requests allowed by GitHub (50 per hour from an IP address). You can increase that limit with a GitHub access token (pretty common among APIs). If you begin to get `403` status errors, you may want to try using our access token which will bump you up to 5000 requests per hour:
-
-```
-https://api.github.com/users/GITHUB_USERNAME?access_token=913f20e25e454b699cbf7b4d5f3ae7fd516cafc4
-```
-
-If your cohort burns through that, try creating your own access token:
-
-https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
-
-#### Profiles Wireframe
-
-![Stretch Goals Wireframe](wireframes/stretch_goals.png)
-
-## Additional Stretch Goals
-
-- Add a button to **delete** a user from the list. This will require both UI changes and a new route.
-- It's pretty weird that details and a broken image are showing up right away because we don't have a default user. Use [react conditional rendering](https://reactjs.org/docs/conditional-rendering.html) to only show the details section if there is a selected user.
-- Add styling to your components.
-- Repeat over the users followers and display them below the selected users profile information.
+## Support
+If you have suggestions or issues, please email me at [youremail@whatever.com](www.google.com)
