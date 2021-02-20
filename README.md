@@ -1,7 +1,7 @@
-![MIT LICENSE](https://img.shields.io/github/MalikElate/GitHub-at-a-glance/the_marketplace.svg?style=flat-square)
-![REPO SIZE](https://img.shields.io/github/repo-MalikElate/GitHub-at-a-glance/the_marketplace.svg?style=flat-square)
-![TOP_LANGUAGE](https://img.shields.io/github/languages/MalikElate/GitHub-at-a-glance/the_marketplace.svg?style=flat-square)
-![FORKS](https://img.shields.io/github/MalikElate/GitHub-at-a-glance/the_marketplace.svg?style=social)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![REPO SIZE](https://img.shields.io/github/repo-size/MalikElate/GitHub-at-a-glance.svg?style=flat-square)
+![TOP_LANGUAGE](https://img.shields.io/github/languages/top/MalikElate/GitHub-at-a-glance.svg?style=flat-square)
+![FORKS](https://img.shields.io/github/forks/MalikElate/GitHub-at-a-glance.svg?style=social)
 
 # GitHub at a Glance 
 
@@ -11,7 +11,7 @@ _Duration: 2 Week Sprint_
 
 Before GitHub at a Glance if a recruiter wanted to compare multiple job candidates they needed to open millions of tabs. GitHub at a Glance solves the problem the problem by putting all of the candidates basic information on one screen. More easily compare candidates and make hiring decisions faster and more efficiently. 
 
-To see the fully functional site, please visit: [DEPLOYED VERSION OF APP](https://powerful-anchorage-62234.herokuapp.com)
+To see the fully functional site, please visit: [Demo](https://powerful-anchorage-62234.herokuapp.com)
 
 ### Prerequisites
 
@@ -50,7 +50,7 @@ Link to software that is required to install the app (e.g. node).
 Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality.
 
 ## Support
-If you have suggestions or issues, please email me at [youremail@whatever.com](www.google.com)
+If you have suggestions or issues, please email me at [malik.e1955@gmail.com](www.google.com)
 
 ## Screen Shot
 
